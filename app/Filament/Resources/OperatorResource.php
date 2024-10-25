@@ -38,27 +38,26 @@ class OperatorResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('nama_operator'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -66,5 +65,5 @@ class OperatorResource extends Resource
             'create' => Pages\CreateOperator::route('/create'),
             'edit' => Pages\EditOperator::route('/{record}/edit'),
         ];
-    }    
+    }
 }

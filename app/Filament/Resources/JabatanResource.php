@@ -37,28 +37,27 @@ class JabatanResource extends Resource
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
-                Tables\Columns\TextColumn::make('nama_jabatan'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
+                Tables\Columns\TextColumn::make('nama_jabatan')
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -66,5 +65,5 @@ class JabatanResource extends Resource
             'create' => Pages\CreateJabatan::route('/create'),
             'edit' => Pages\EditJabatan::route('/{record}/edit'),
         ];
-    }    
+    }
 }

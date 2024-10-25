@@ -10,10 +10,13 @@
         "filament/forms": "^2.17",
         "filament/tables": "^2.17",
         "guzzlehttp/guzzle": "^7.2",
+        "konnco/filament-import": "*",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "maatwebsite/excel": "^3.1"
+        "maatwebsite/excel": "*",
+        "psr/simple-cache": "2.0",
+        "pxlrbt/filament-excel": "*"
     },
     "require-dev": {
         "doctrine/dbal": "^3.9",

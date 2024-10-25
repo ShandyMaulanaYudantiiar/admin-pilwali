@@ -38,20 +38,19 @@ class RecommanderResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('anggota_dewan.nama_anggota_dewan')->label('Anggota Dewan'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
+                Tables\Columns\TextColumn::make('anggotaDewan.nama_anggota_dewan')->label('Anggota Dewan'),
                 Tables\Columns\TextColumn::make('nama_recommander'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

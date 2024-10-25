@@ -38,20 +38,19 @@ class KoorWilayahResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('kecamatan.nama_kecamatan')->label('Kecamatan'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime(),
+                Tables\Columns\TextColumn::make('kecamatan.nama_kecamatan')->label('Kecamatan'),
                 Tables\Columns\TextColumn::make('nama_koor_wilayah'),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
