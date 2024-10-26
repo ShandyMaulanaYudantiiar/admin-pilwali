@@ -14,6 +14,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Excel as ExcelWriter;
 use Illuminate\Support\Facades\Storage;
 use App\Exports\TemplateExport;
+use pxlrbt\FilamentExcel\Actions\Pages\ExportAction;
+use pxlrbt\FilamentExcel\Columns\Column;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class ListRecommanders extends ListRecords
 {
@@ -40,6 +43,19 @@ class ListRecommanders extends ListRecords
                         'anggota_dewan_id' => $data['anggota_dewan_id'],
                     ]);
                 }),
+            ExportAction::make()
+                ->exports([
+                    ExcelExport::make()
+                        ->fromTable()
+                        ->withFilename(fn ($resource) => 'Recommanders - ' . date('Y-m-d'))
+                        ->withWriterType(ExcelWriter::XLSX)
+                        ->except(['created_at', 'updated_at', 'deleted_at'])
+                        ->withColumns([
+                            Column::make('id')->heading('ID'),
+                            Column::make('nama_recommander')->heading('Nama Recommander'),
+                            Column::make('anggotaDewan.nama_anggota_dewan')->heading('Anggota Dewan'),
+                        ])
+                ]),
             Actions\Action::make('downloadTemplate')
                 ->label('Download Import Template')
                 ->action('downloadTemplate')

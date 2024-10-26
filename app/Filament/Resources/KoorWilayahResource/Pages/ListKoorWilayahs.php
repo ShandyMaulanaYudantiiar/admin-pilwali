@@ -14,6 +14,9 @@ use Konnco\FilamentImport\Actions\ImportAction;
 use Konnco\FilamentImport\Actions\ImportField;
 use Maatwebsite\Excel\Excel as ExcelWriter;
 use Maatwebsite\Excel\Facades\Excel;
+use pxlrbt\FilamentExcel\Actions\Pages\ExportAction;
+use pxlrbt\FilamentExcel\Columns\Column;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class ListKoorWilayahs extends ListRecords
 {
@@ -40,6 +43,19 @@ class ListKoorWilayahs extends ListRecords
                         'kecamatan_id' => $data['kecamatan_id'],
                     ]);
                 }),
+            ExportAction::make()
+                ->exports([
+                    ExcelExport::make()
+                        ->fromTable()
+                        ->withFilename(fn ($resource) => 'KoorWilayahs - ' . date('Y-m-d'))
+                        ->withWriterType(ExcelWriter::XLSX)
+                        ->except(['created_at', 'updated_at', 'deleted_at'])
+                        ->withColumns([
+                            Column::make('id')->heading('ID'),
+                            Column::make('nama_koor_wilayah')->heading('Nama Koor Wilayah'),
+                            Column::make('kecamatan.nama_kecamatan')->heading('Kecamatan'),
+                        ])
+                ]),
             Actions\Action::make('downloadTemplate')
                 ->label('Download Import Template')
                 ->action('downloadTemplate')
