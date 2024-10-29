@@ -17,7 +17,8 @@
         "maatwebsite/excel": "*",
         "phpoffice/phpspreadsheet": "*",
         "psr/simple-cache": "2.0",
-        "pxlrbt/filament-excel": "*"
+        "pxlrbt/filament-excel": "*",
+        "webbingbrasil/filament-advancedfilter": "*"
     },
     "require-dev": {
         "doctrine/dbal": "^3.9",

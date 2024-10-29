@@ -141,7 +141,6 @@ return [
         'register' => [
 //            Widgets\AccountWidget::class,
 //            Widgets\FilamentInfoWidget::class,
-        \App\Filament\Resources\RelawanResource\Widgets\RelawanOverview::class
         ],
     ],
 
