@@ -22,4 +22,9 @@ class DPT extends Model
         'tps',
         'kelamin',
     ];
+
+    public function relawan()
+    {
+        return $this->hasOne(Relawan::class, 'nik', 'nik');
+    }
 }

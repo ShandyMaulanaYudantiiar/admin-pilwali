@@ -141,6 +141,9 @@ return [
         'register' => [
 //            Widgets\AccountWidget::class,
 //            Widgets\FilamentInfoWidget::class,
+            \App\Filament\Widgets\RelawanCount::class,
+            \App\Filament\Widgets\RelawanByKecamatan::class,
+            \App\Filament\Widgets\DptMap::class
         ],
     ],
 

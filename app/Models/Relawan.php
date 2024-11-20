@@ -22,4 +22,9 @@ class Relawan extends Model
         'status_nik',
         'sk'
     ];
+
+    public function dpt()
+    {
+        return $this->belongsTo(DPT::class, 'nik', 'nik');
+    }
 }

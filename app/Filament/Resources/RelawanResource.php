@@ -55,6 +55,7 @@ class RelawanResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nik')->label('NIK'),
+                Tables\Columns\TextColumn::make('dpt.nama')->label('Nama'),
                 Tables\Columns\TextColumn::make('no_hp')->label('No HP'),
                 Tables\Columns\TextColumn::make('recommander')->label('Recommander'),
                 Tables\Columns\TextColumn::make('anggota_dewan')->label('Anggota Dewan'),
